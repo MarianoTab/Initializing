@@ -1,12 +1,13 @@
 import requests
 import json
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
 # URL de la API de prueba
 url = "https://jsonplaceholder.typicode.com/posts"
 
 try:
     # Realiza la solicitud GET a la API
-    response = requests.get(url)
+    response = requests.get(url, verify=False)
     response.raise_for_status() #verifica si hubo errores en la solicitud
 
     # Conviernte la respuesta en formato JSON
